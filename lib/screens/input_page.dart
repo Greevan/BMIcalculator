@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
-import 'icon_label.dart';
-import 'constants.dart';
-import 'round_icon_button.dart';
+import '../components/reusable_card.dart';
+import '../components/icon_label.dart';
+import '../constants.dart';
+import '../components/round_icon_button.dart';
 import 'results_page.dart';
+import '../components/bottom_button.dart';
 
 enum Gender { male, female }
 
@@ -170,7 +171,9 @@ class _InputPageState extends State<InputPage> {
                           textBaseline: TextBaseline.alphabetic,
                           crossAxisAlignment: CrossAxisAlignment.baseline,
                           children: <Widget>[
-                            const SizedBox(width: 20,),
+                            const SizedBox(
+                              width: 20,
+                            ),
                             Text(
                               myWeight.toString(),
                               style: kNumberTextStyle,
@@ -252,29 +255,18 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ), //Row3
-          Expanded(
-            child: GestureDetector(
-              onTap: (){
-                Navigator.push(context,MaterialPageRoute(builder: (context)=> const ResultsPage()),);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16),
-                  color: kBottomContainerColor,
-                ),
-                margin: const EdgeInsets.only(top: 13),
-                width: double.infinity,
-                height: kBottomContainerHeight,
-                child: const Center(
-                    child: Text(
-                  "Calculate",
-                  style: TextStyle(fontSize: 30),
-                ),),
-              ),
-            ),
-          )
+          BottomButton(
+            onTap: () {
+              setState(() {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const ResultsPage()));
+              });
+            },
+            custBottomButtonText: 'Calculate',
+          ),
         ],
       ),
     );
   }
 }
+
+
