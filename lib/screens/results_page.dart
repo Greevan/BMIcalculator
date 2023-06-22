@@ -5,7 +5,10 @@ import '../components/reusable_card.dart';
 import '../components/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
-  const ResultsPage({super.key});
+  final String bmi;
+  final String result;
+  final String comment;
+  const ResultsPage({required this.bmi,required this.result,required this.comment});
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +32,15 @@ class ResultsPage extends StatelessWidget {
               flex:5,
               child: ReusableCard(
                 custColor: kActiveBoxColor,
-                cardChild: const Column(
+                cardChild:  Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children:<Widget> [
                     // SizedBox(height: 20),
-                    Text('Normal',style: kResultText,),
+                    Text(result,style: kResultText,),
                     // SizedBox(height: 70),
-                    Text('21',style: kResultBMI),
+                    Text(bmi,style: kResultBMI),
                     // SizedBox(height: 280),
-                    Text('You are maintaining your body fit. Keep it up!',style: kResultComment,textAlign: TextAlign.center,),
+                    Text(comment,style: kResultComment,textAlign: TextAlign.center,),
                   ],
                 ),
               ),
