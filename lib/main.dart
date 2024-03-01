@@ -8,10 +8,11 @@ class BMIcalculator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: Colors.blueGrey,
-        appBarTheme:const AppBarTheme(backgroundColor: Color(0xFF2c2c3b) ),
+        appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF2c2c3b)),
         scaffoldBackgroundColor: const Color(0xFF0f1527),
         // textTheme: const TextTheme(
         //   bodyLarge: TextStyle(color: Colors.white),
@@ -19,9 +20,7 @@ class BMIcalculator extends StatelessWidget {
         //   bodySmall: TextStyle(color: Colors.white),
         // )
       ),
-      home:  InputPage(),
+      home: InputPage(),
     );
   }
 }
-
- 
